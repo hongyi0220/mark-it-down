@@ -1,0 +1,48 @@
+const defaultText = 'HEADING\n=====\nsubheading\n-----\nYou can make it **bold**  \nor *italic*  \nor type some `code`  \ndelete it ~~`code`~~  \ncreate a [link](http://blahblahblah.com)\n### smaller heading\n#### ul\n* Eat\n* Pray\n* Love (no I didn\'t read the book)\n\n#### ol\n1. Learn to code\n2. Practice coding\n3. Live and breath code';
+class MarkDown extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = { text: defaultText };
+        this.handleChange = this.handleChange.bind(this);
+    }
+    
+    handleChange(e) {
+        const newText = e.target.value;
+        this.setState({text: newText});
+    }
+    
+    render() {
+        return (
+            <div>
+                <Input handleChange={this.handleChange} text=   {this.state.text}/>
+                
+                <Preview text={this.state.text}/>
+                <Footer />
+             </div>
+        );
+    }
+}
+
+const Input = (props) => {
+    return (
+        <textarea onChange={props.handleChange} value={props.text}></textarea>
+    );  
+}
+
+const Preview = (props) => {
+    const markUp = () => {
+        return {__html: marked(props.text)};
+    }
+    return <div id="preview" dangerouslySetInnerHTML={markUp()}></div>
+}
+
+const Footer = (props) => {
+    return (
+        <footer>Created by YH</footer>
+    );
+}
+
+ReactDOM.render(
+    <MarkDown />,
+    document.getElementById('app')
+);

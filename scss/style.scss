@@ -1,0 +1,22 @@
+$border: 1px solid black;
+$font: 'Ubuntu Mono', monospace;
+@mixin box-shape($h: 400px, $w: 45%, $d: inline-block, $b: border-box) {
+    height: $h;
+    width: $w;
+    box-sizing: $b;
+    display: $d;
+    vertical-align: top;
+    overflow-wrap: break-word;
+    font-family: 'Ubuntu Mono', monospace;
+}
+textarea, #preview {
+    @include box-shape;
+    margin-left: 5%;
+    margin-top: 5%;
+    border-radius: 2px;
+}
+footer {
+    text-align: center;
+    margin-top: 20%;
+    font-family: $font;
+}

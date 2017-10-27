@@ -1,0 +1,18 @@
+textarea, #preview {
+  height: 400px;
+  width: 45%;
+  box-sizing: border-box;
+  display: inline-block;
+  vertical-align: top;
+  overflow-wrap: break-word;
+  font-family: 'Ubuntu Mono', monospace;
+  margin-left: 5%;
+  margin-top: 5%;
+  border-radius: 2px;
+}
+
+footer {
+  text-align: center;
+  margin-top: 20%;
+  font-family: "Ubuntu Mono", monospace;
+}
